@@ -63,9 +63,9 @@ return {
         formatting.taplo,
         -----------------------------------------------------
         -- Diagnostics  ---------------------
-        -- diagnostics.eslint.with({
-        --   prefer_local = "node_modules/.bin",
-        -- }),
+        diagnostics.eslint.with({
+          only_local = "node_modules/.bin",
+        }),
         -- npm install -g eslint_d
         --diagnostics.eslint.with({
         --  prefer_local = "node_modules/.bin",

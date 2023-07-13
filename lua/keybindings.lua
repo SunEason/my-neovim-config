@@ -8,8 +8,8 @@ local opt = {noremap = true,silent = true}
 -- 取消 s 默认功能
 map("n", "s", "", opt)
 -- ctrl n p f b esc
-map("i",",.","<Esc>",opt)
 map("n","<C-g>","<Esc>",opt)
+map("i","<C-g>","<Esc>",opt)
 map("v","<C-g>","<Esc>",opt)
 map("i","<C-n>","<Down>",opt)
 map("i","<C-p>","<Up>",opt)
@@ -46,17 +46,6 @@ map("n", "<C-Up>", ":resize -20<CR>", opt)
 map("n", "<M-w>e", "<C-w>=", opt)
 --==========window==========--
 
---==========terminal==========--
--- Terminal相关
-map("n", "<leader>t", ":sp | terminal<CR>", opt)
-map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
-map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
---==========terminal==========--
-
 --==========代码移动==========--
 -- visual模式下缩进代码
 map("v", "H", "<gv", opt)
@@ -84,6 +73,7 @@ map("n", "qk",":x<CR>",opt)
 --==========插件快捷键==========--
 -- 插件快捷键
 local pluginKeys = {}
+map("n","<leader>L","<cmd>Lazy<CR>",opt)
 ------ nvim-tree ------
 map("n", "<M-e>", ":NvimTreeToggle<CR>", opt)
 pluginKeys.on_attach = function (bufnr)
@@ -231,22 +221,18 @@ end
 
 ------ lsp ------
 -- lsp 回调函数快捷键设置
-vim.api.nvim_buf_set_keymap(0,"n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "go", "<cmd>Lspsaga goto_definition<CR>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "<leader>=", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
--- typescript 快捷键
-pluginKeys.mapTsLSP = function(mapbuf)
-  mapbuf("n", "gs", ":TSLspOrganize<CR>", opt)
-  mapbuf("n", "gr", ":TSLspRenameFile<CR>", opt)
-  mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)
-end
+map("n","<leader>M","<cmd>Mason<CR>",opt)
+map("n","<leader>L","<cmd>LspInfo<CR>",opt)
+map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
+map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
+map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
+map("n", "go", "<cmd>Lspsaga goto_definition<CR>", opt)
+map("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
+--map("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+--map("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
+map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
+map("n", "<leader>=", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
 ------ lsp ------
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
