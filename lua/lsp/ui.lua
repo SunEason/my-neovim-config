@@ -18,7 +18,7 @@ lspkind.init({
     -- defines how annotations are shown
     -- default: symbol
     -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-    mode = 'symbol_text',
+    mode = 'symbol',
     -- default symbol map
     -- can be either 'default' (requires nerd-fonts font) or
     -- 'codicons' for codicon preset (requires vscode-codicons font)
@@ -29,30 +29,30 @@ lspkind.init({
     --
     -- default: {}
     symbol_map = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "ﰠ",
-      Variable = "",
-      Class = "ﴯ",
-      Interface = "",
-      Module = "",
-      Property = "ﰠ",
-      Unit = "塞",
-      Value = "",
-      Enum = "",
-      Keyword = "",
+      Text = "󰊄",
+      Method = "",
+      Function = "󰊕",
+      Constructor = "",
+      Field = "",
+      Variable = "󰫧",
+      Class = "",
+      Interface = "",
+      Module = "󰕳",
+      Property = "",
+      Unit = "󰚯",
+      Value = "",
+      Enum = "",
+      Keyword = "",
       Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "פּ",
-      Event = "",
-      Operator = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
       TypeParameter = ""
     },
 })
@@ -61,10 +61,10 @@ lspsaga.setup { -- defaults ...
   debug = false,
   use_saga_diagnostic_sign = false,
   -- diagnostic sign
-  error_sign = "",
-  warn_sign = "",
-  hint_sign = "",
-  infor_sign = "",
+  error_sign = "",
+  warn_sign = "",
+  hint_sign = "",
+  infor_sign = "󰋼",
   diagnostic_header_icon = "   ",
   -- code action title icon
   code_action_icon = "<",
