@@ -59,6 +59,6 @@ for name, config in pairs(servers) do
     config.on_setup(lspconfig[name])
   else
     -- 使用默认参数
-    lspconfig[name].setup({})
+    lspconfig[name].on_setup({})
   end
 end

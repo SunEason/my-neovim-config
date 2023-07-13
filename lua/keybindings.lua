@@ -1,4 +1,3 @@
-
 --==========基础配置==========--
 -- leader键
 vim.g.mapleader = " "
@@ -25,9 +24,9 @@ map("n","K","5k",opt)
 map("n", "<M-w>r", ":vsp<CR>", opt)
 map("n", "<M-w>b", ":sp<CR>", opt)
 -- 关闭当前
-map("n", "<C-\\>", "<C-w>c", opt)
+map("n", "<C-x>", "<C-w>c", opt)
 -- 关闭其他
-map("n", "<C-]>", "<C-w>o", opt)
+map("n", "<C-c>", "<C-w>o", opt)
 -- Ctrl + hjkl  窗口之间跳转
 map("n", "<C-h>", "<C-w>h", opt)
 map("n", "<C-j>", "<C-w>j", opt)
@@ -157,7 +156,7 @@ local execs = {
   {cmd=nil,keymap="<M-t>b",direction="horizontal",size=0.3,label = "horizontal term"},
   {cmd=nil,keymap="<M-t>r",direction="vertical",size=0.4,label = "vertical term"},
   {cmd="lazygit",keymap="<M-t>g",direction="float",size=nil,label = "lazygit term"},
-} 
+}
 --- Get current buffer size
 ---@return {width: number, height: number}
 local function get_buf_size()
@@ -209,7 +208,7 @@ local function exec_toggle(opts)
     })
     lazygit:toggle(opts.direction)
   else
-    local term = Terminal:new {cmd = opt.cmd,count = opts.count,direction = opts.direction} 
+    local term = Terminal:new {cmd = opt.cmd,count = opts.count,direction = opts.direction}
     term:toggle(opts.size,opts.direction)
   end
 end
@@ -225,7 +224,7 @@ for i,exec in pairs(execs) do
     end
   }
   vim.keymap.set({"n","t"},opts.keymap,function()
-    exec_toggle{cmd = opts.cmd,count = opts.count,direction = opts.direction,size = opts.size()} 
+    exec_toggle{cmd = opts.cmd,count = opts.count,direction = opts.direction,size = opts.size()}
   end,{desc = opts.label,noremap = true,silent = true})
 end
 ------ toggleterm------
@@ -234,13 +233,14 @@ end
 -- lsp 回调函数快捷键设置
 vim.api.nvim_buf_set_keymap(0,"n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
 vim.api.nvim_buf_set_keymap(0,"n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+vim.api.nvim_buf_set_keymap(0,"n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
+vim.api.nvim_buf_set_keymap(0,"n", "go", "<cmd>Lspsaga goto_definition<CR>", opt)
 vim.api.nvim_buf_set_keymap(0,"n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
 vim.api.nvim_buf_set_keymap(0,"n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
 vim.api.nvim_buf_set_keymap(0,"n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
 vim.api.nvim_buf_set_keymap(0,"n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
 vim.api.nvim_buf_set_keymap(0,"n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-vim.api.nvim_buf_set_keymap(0,"n", "<leader>fm", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
+vim.api.nvim_buf_set_keymap(0,"n", "<leader>=", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
 -- typescript 快捷键
 pluginKeys.mapTsLSP = function(mapbuf)
   mapbuf("n", "gs", ":TSLspOrganize<CR>", opt)

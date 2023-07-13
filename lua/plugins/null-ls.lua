@@ -67,9 +67,9 @@ return {
         --   prefer_local = "node_modules/.bin",
         -- }),
         -- npm install -g eslint_d
-        diagnostics.eslint.with({
-          prefer_local = "node_modules/.bin",
-        }),
+        --diagnostics.eslint.with({
+        --  prefer_local = "node_modules/.bin",
+        --}),
         -- diagnostics.markdownlint,
         -- markdownlint-cli2
         -- diagnostics.markdownlint.with({

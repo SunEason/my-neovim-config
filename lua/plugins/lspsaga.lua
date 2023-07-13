@@ -1,5 +1,5 @@
 return {
-  "tami5/lspsaga.nvim",
+  "nvimdev/lspsaga.nvim",
   --config = function ()
   --  local lspsaga = require 'lspsaga'
   --  lspsaga.setup { -- defaults ...
