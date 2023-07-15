@@ -17,6 +17,11 @@ cmp.setup({
       -- require'snippy'.expand_snippet(args.body)
     end,
   },
+  -- window
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   -- 补全源
   sources = cmp.config.sources({
     { name = "nvim_lsp" },

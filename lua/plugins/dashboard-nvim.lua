@@ -12,11 +12,11 @@ return {
       theme = "doom",
       config={
         header = {
-          [[]],
-          [[]],
-          [[]],
-          [[]],
-          [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
           [[]],
           [[]],
           [[]],
@@ -33,22 +33,22 @@ return {
           [[]],
           [[]],
           [[]],
-          [[]],
-          [[]],
-          [[]],
-          [[]],
-          [[]],
-          [[]],
-          [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
+          -- [[]],
         },
         footer = {
           "",
           "",
-          "https://github.com/nshen/learn-neovim-lua",
+          "https://github.com/sunday217551/my-neovim-config",
         },
         center = {
           {
-            icon = "  ",
+            icon = "  ",
             desc = "Projects                            ",
             action = "Telescope projects",
             key = "<leader>p"
@@ -60,7 +60,7 @@ return {
             key = "<leader>r"
           },
           {
-            icon = "  ",
+            icon = "󰥻  ",
             desc = "Edit keybindings                    ",
             action = "edit ~/.config/nvim/lua/keybindings.lua",
             key = "<leader>k"
@@ -81,21 +81,18 @@ return {
           --   desc = "Change colorscheme                  ",
           --   action = "ChangeColorScheme",
           -- },
-          -- {
-          --   icon = "  ",
-          --   desc = "Edit init.lua                       ",
-          --   action = "edit ~/.config/nvim/init.lua",
-          -- },
-          -- {
-          --   icon = "  ",
-          --   desc = "Find file                           ",
-          --   action = "Telescope find_files",
-          -- },
-          -- {
-          --   icon = "  ",
-          --   desc = "Find text                           ",
-          --   action = "Telescopecope live_grep",
-          -- },
+          {
+            icon = "  ",
+            desc = "Find file                           ",
+            action = "Telescope find_files",
+            key = "<leader>f"
+          },
+          {
+            icon = "  ",
+            desc = "Find text                           ",
+            action = "Telescope live_grep",
+            key = "<leader>g"
+          },
         }
       }
     })

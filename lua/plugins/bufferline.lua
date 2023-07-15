@@ -32,7 +32,7 @@ return{
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
           local s = ""
           for e, _ in pairs(diagnostics_dict) do
-            local sym = e == "error" and "!" or (e == "warning" and "=" or "+")
+            local sym = e == "error" and "E" or (e == "warning" and "W" or "I")
             s = s .. sym
           end
           return s

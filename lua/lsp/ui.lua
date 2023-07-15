@@ -4,7 +4,7 @@ vim.diagnostic.config({
   -- 在输入模式下也更新提示，设置为 true 也许会影响性能
   update_in_insert = false,
 })
-local signs = { Error = " !", Warn = " =", Hint = " +", Info = " ~" }
+local signs = { Error = " E", Warn = " W", Hint = " H", Info = " I" }
 --local signs = { Error = " ", Warn = " ", Hint = " ", Info = "" }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
@@ -115,7 +115,7 @@ local M ={}
 -- 为 cmp.lua 提供参数格式
 M.formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol_text',
+      mode = 'symbol',
       --mode = 'symbol', -- show only symbol annotations
 
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
